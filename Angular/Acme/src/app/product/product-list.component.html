@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    Product List
+    {{productTitle}}
   </div>
   <div class="card-body">
     <div class="row">
@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="table-responsive">
-      <table class="table">
+      <table class="table" *ngIf="productList && productList.length">
         <thead>
         <tr>
           <th>
@@ -31,7 +31,19 @@
         </tr>
         </thead>
         <tbody>
-        <!-- Colocar aqui as diretivas -->
+          <tr *ngFor="let product of productList">
+            <td>
+              <img [src]='product.imageUrl'
+              [title]="product.productName"
+              [style.width.px]="imgWidth"
+              [style.margin.px]="imgMargin">
+            </td>
+            <td>{{product.productName}}</td>
+            <td>{{product.productCode}}</td>
+            <td>{{product.releaseDate}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.starRating}}</td>
+          </tr>
         </tbody>
       </table>
     </div>
