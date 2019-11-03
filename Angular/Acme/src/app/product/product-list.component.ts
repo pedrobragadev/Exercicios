@@ -7,6 +7,9 @@ import {Component} from '@angular/core';
 
 export class ProductListComponent {
   productTitle: string = 'Product List';
+  imgWidth: number = 50;
+  imgMargin: number = 2;
+  showImg: boolean = false;
   productList: any[] = [
     {
       "productId": 1,
@@ -59,4 +62,8 @@ export class ProductListComponent {
       "imageUrl": "assets/images/xbox-controller.png"
     }
   ];
+
+  toogleImg() {
+    this.showImg = !this.showImg;
+}
 }

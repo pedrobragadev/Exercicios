@@ -8,7 +8,5 @@ import {Component} from '@angular/core';
 })
 
 export class AppComponent {
-  imgWidth: number = 10;
-  imgMargin: number = 2;
   pageTitle: string = 'Acme Product Management';
 }
