@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-md-2">Filter by:</div>
       <div class="col-md-4">
-        <input type="text" [(ngModel)]="filterDefault"/>
+        <input type="text" [(ngModel)]="filter()"/>
       </div>
     </div>
     <div class="row">
@@ -19,7 +19,7 @@
         <thead>
         <tr>
           <th>
-            <button class="btn btn-primary" (click)="toogleImg()">
+            <button class="btn btn-primary" (click)="toggleImag()">
               {{showImg ? "Hide" : "Show"}} image
             </button>
           </th>
@@ -41,7 +41,7 @@
               >
             </td>
             <td>{{product.productName}}</td>
-            <td>{{product.productCode | uppercase}}</td>
+            <td>{{product.productCode | uppercase | changeToSapce:'-'}}</td>
             <td>{{product.releaseDate | date}}</td>
             <td>{{product.price | currency:'USD' : 'symbol' : '1.2-2'}}</td>
             <td>{{product.starRating}}</td>
