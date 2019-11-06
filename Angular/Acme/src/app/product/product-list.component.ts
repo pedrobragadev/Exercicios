@@ -7,7 +7,7 @@ import {IProduct} from './product';
   templateUrl: './product-list.component.html',
   styleUrls: ['product-list.component.css']
 })
-export class ProductListComponent implements OnInit{
+export class ProductListComponent implements OnInit {
   productTitle = 'Product List';
   imgWidth = 50;
   imgMargin = 2;
@@ -18,8 +18,13 @@ export class ProductListComponent implements OnInit{
   }
   set listFilter(filterDefault: string) {
     this._listFilter = filterDefault;
-    this.filteredValue = this.listFilter ? this.productList : this.performFilter(this._listFilter);
+    this.filteredValue = this.listFilter ? this.performFilter(this._listFilter) : this.productList;
   }
+  constructor() {
+    this.filteredValue = this.productList;
+    this.listFilter = '';
+  }
+
   filteredValue: IProduct[];
   productList: IProduct[] = [
     {
@@ -75,10 +80,6 @@ export class ProductListComponent implements OnInit{
   ];
   toggleImag() {
     this.showImg = !this.showImg;
-}
-
-  filter(): IProduct {
-
   }
   ngOnInit(): void {
     console.log('On init worked');
