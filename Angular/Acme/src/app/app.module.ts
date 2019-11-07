@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import {ProductListComponent} from './product/product-list.component';
 import {FormsModule} from '@angular/forms';
 import {changeToSapce} from './shared/change-to-spaces.pipe';
+import {StarComponent} from './shared/star.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    changeToSapce
+    changeToSapce,
+    StarComponent
   ],
   imports: [
     BrowserModule,
