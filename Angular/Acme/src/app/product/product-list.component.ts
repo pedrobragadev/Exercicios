@@ -25,12 +25,18 @@ export class ProductListComponent implements OnInit {
 
   filteredValue: IProduct[];
   productList: IProduct[] = [];
+  errorMessage: string;
   toggleImag() {
     this.showImg = !this.showImg;
   }
   ngOnInit(): void {
-    this.productList =  this.productService.getProducts();
-    this.filteredValue = this.productList;
+    this.productService.getProducts().subscribe({
+      next: product => {
+        this.productList = product;
+        this.filteredValue = this.productList;
+      },
+      error: err => this.errorMessage = err
+    });
   }
 
   private performFilter(filterBy: string): IProduct[] {
