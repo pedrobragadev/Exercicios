@@ -4,16 +4,20 @@ import {IProduct} from './product';
 import {ProductService} from '../services/product.service';
 
 @Component({
-  selector: 'pm-products',
   templateUrl: './product-list.component.html',
   styleUrls: ['product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  // Variables
   productTitle = 'Product List';
   imgWidth = 50;
   imgMargin = 2;
   showImg = false;
   _listFilter: string;
+  filteredValue: IProduct[];
+  productList: IProduct[] = [];
+  errorMessage: string;
+  // Gets and sets
   get listFilter(): string {
     return this._listFilter;
   }
@@ -21,11 +25,9 @@ export class ProductListComponent implements OnInit {
     this._listFilter = filterDefault;
     this.filteredValue = this.listFilter ? this.performFilter(this._listFilter) : this.productList;
   }
+  // Constructor
   constructor(private productService: ProductService) {}
-
-  filteredValue: IProduct[];
-  productList: IProduct[] = [];
-  errorMessage: string;
+  // Functions
   toggleImag() {
     this.showImg = !this.showImg;
   }
