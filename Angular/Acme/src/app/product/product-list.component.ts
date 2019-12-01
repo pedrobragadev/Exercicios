@@ -25,7 +25,7 @@ export class ProductListComponent implements OnInit {
     this._listFilter = filterDefault;
     this.filteredValue = this.listFilter ? this.performFilter(this._listFilter) : this.productList;
   }
-  // Constructor
+  // Class Constructor
   constructor(private productService: ProductService) {}
   // Functions
   toggleImag() {
