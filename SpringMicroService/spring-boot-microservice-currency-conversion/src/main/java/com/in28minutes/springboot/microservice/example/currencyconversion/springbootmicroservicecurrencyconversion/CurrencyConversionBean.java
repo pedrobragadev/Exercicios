@@ -25,4 +25,32 @@ public class CurrencyConversionBean {
         this.totalCalculatedAmount = totalCalculatedAmount;
         this.port = port;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+    public BigDecimal getConversionMultiple() {
+        return conversionMultiple;
+    }
+
+    public BigDecimal getQuantity() {
+        return quantity;
+    }
+
+    public BigDecimal getTotalCalculatedAmount() {
+        return totalCalculatedAmount;
+    }
+
+    public int getPort() {
+        return port;
+    }
 }
